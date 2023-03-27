@@ -1,0 +1,80 @@
+import java.util.*;
+
+public class Passenger
+{
+	private String First_Name_;
+	private String Surname_;
+	private int Expenses_;
+
+	private static final Scanner input = new Scanner(System.in);
+
+	//Defult Constructor
+	public Passenger ()
+	{
+		this.First_Name_="Not reserved";
+		this.Surname_="Not reserved";
+		this.Expenses_=0;
+	}
+
+
+	//Setters
+	//Set First name input
+	protected void set_Firstname(int cabin_num,int x)
+	{
+		System.out.print("Enter cabin "+(cabin_num)+" Passenger "+ (x+1) +" first name :");
+		this.First_Name_=input.next();
+	}
+	// Set surnname input
+	protected void set_Surname(int cabin_num,int x)
+	{
+		System.out.print("Enter cabin "+(cabin_num)+" Passenger "+ (x+1) +" Surname :");
+		this.Surname_=input.next();
+	}
+
+	protected void Set_Expenses(int cabin_num,int x)
+	{
+		while (true)
+		{
+			System.out.print("Enter cabin "+(cabin_num)+" Passenger "+ (x+1) +" Expenses :");
+			if (input.hasNextInt())
+			{
+				this.Expenses_=input.nextInt();
+				break;
+			}
+			else
+			{
+				System.out.println("Wrong input");
+				input.next();
+			}
+		}
+	}
+
+
+	// Getters
+	//return firstname
+	protected String get_Firstname()
+	{
+		return this.First_Name_;
+	}
+
+	//return surname
+	protected String get_Surname()
+	{
+		return this.Surname_;
+	}
+
+	//return expenses
+	protected int get_Expenses()
+	{
+		return this.Expenses_;
+	}
+
+
+	//data reset
+	protected void clear_passenger()
+	{
+		this.Expenses_=0;
+		this.First_Name_="Not reserved";
+		this.Surname_="Not reserved";
+	}
+}
